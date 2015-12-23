@@ -1,6 +1,6 @@
 require 'interface/strings/constants'
 
-class GhostTree
+class Tree
 
   def initialize(path)
     @path = path
@@ -13,11 +13,11 @@ class GhostTree
   def list
     begin
       d = Dir.new(@path)
+      d.each do |x|
+        puts(x)
+      end
     rescue SystemCallError
       puts INVALID_DIRECTORY
-    end
-    d.each do |x|
-      puts(x)
     end
   end
 

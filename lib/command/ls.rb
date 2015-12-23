@@ -1,8 +1,8 @@
-require 'utils/ghost_tree'
+require 'utils/tree'
 
 $ghost['ls', lambda do | path |
 
-  tree = GhostTree.new path
+  tree = Tree.new path
   tree.list
   print "\n"
 
