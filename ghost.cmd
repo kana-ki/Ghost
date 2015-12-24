@@ -1,0 +1,1 @@
+@ruby -C./lib ./main.rb %*
