@@ -1,4 +1,4 @@
-require 'interface/strings/constants'
+require 'interface/constants/strings'
 
 class Tree
 

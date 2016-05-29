@@ -3,12 +3,10 @@
 # Andy James / Kana.dev
 # #
 
-# Don't reserve prints in buffer, immediately flush
-$stdout.sync = $stdin.sync = true
-
-# Load path for requires
-$: << '.'
-require 'interface/strings/constants'
+$stdout.sync = $stdin.sync = true # Don't withhold prints in buffer, immediately flush
+$: << '.' # Load path for requires
+require 'interface/constants/strings'
+require 'interface/arguments'
 require 'utils/tree'
 require 'utils/cmd'
 
