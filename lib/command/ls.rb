@@ -1,8 +1,13 @@
-require 'utils/tree'
+#!/usr/bin/env ruby
+# Ghost 0.1b
+# Andy James / Kana.dev
+# #
 
-$ghost['ls', lambda do | path |
+require 'util/tree'
 
-  tree = Tree.new path
+$ghost_cmd['ls', lambda do | flags, path |
+
+  tree = Util::Tree.new path
   tree.list
   print "\n"
 

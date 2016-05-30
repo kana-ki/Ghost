@@ -1,5 +1,5 @@
 # require 'Win32API'
-# require 'strings'
+# require 'constants'
 #
 # shell_notify_icon  = Win32API.new('shell32', 'Shell_NotifyIcon', %w(L P), 'I')
 # load_icon = Win32API.new('user32', 'LoadImage' ,%w(P P I I I I),'I')

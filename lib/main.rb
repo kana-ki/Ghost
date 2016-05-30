@@ -5,22 +5,12 @@
 
 $stdout.sync = $stdin.sync = true # Don't withhold prints in buffer, immediately flush
 $: << '.' # Load path for requires
-require 'interface/constants/strings'
-require 'interface/arguments'
-require 'utils/tree'
-require 'utils/cmd'
+require 'interface/strings'
+require 'util/tree'
+require 'util/argument'
+require 'util/command'
 
-include Interface::Strings
+Util::Argument::handle_args
+Util::Command::handle_cmds unless $daemon
 
-if ARGV.length > 0
-  Cmd::exec(ARGV)
-  exit
-end
-
-loop do
-  print '$ghost > '
-  # Kernel.gets tries to read the params found in ARGV and only asks console if there are none found in ARGV. To force a read from console - even if ARGV is not empty - use STDIN.
-  request = STDIN.gets.strip!.split(' ')
-  next if request.empty?
-  Cmd::exec(request)
-end
+print STARTING_AS_DAEMON if $daemon

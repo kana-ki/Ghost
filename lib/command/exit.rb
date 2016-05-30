@@ -1,4 +1,8 @@
-require 'utils/tree'
+#!/usr/bin/env ruby
+# Ghost 0.1b
+# Andy James / Kana.dev
+# #
 
+require 'util/tree'
 
-$ghost['exit', :exit ]
+$ghost_cmd['exit', :exit ]
