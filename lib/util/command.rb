@@ -3,9 +3,6 @@
 # Andy James / Kana.dev
 # #
 
-require 'interface/strings'
-include Interface::Strings
-
 module Util
 
   CMD_TYPE_LAMBDA = 1
@@ -24,11 +21,11 @@ module Util
         print '$ghost > '
         request = STDIN.gets.strip!.split(' ')  ## Kernel.gets tries to read the params found in ARGV and only asks console if there are none found in ARGV.
         next if request.empty?                   # To force a read from console - even if ARGV is not empty - use STDIN.
-        exec(*Argument::lex(request))
+        action(*Argument::lex(request))
       end
     end
 
-    def self.exec(cmd, flags = [])
+    def self.action(cmd, flags = [])
       cmd_str = cmd[0].downcase
       args = cmd[1..-1]
       cmd = resolve(cmd_str)

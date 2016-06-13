@@ -20,15 +20,15 @@ module Util
     def self.handle_args
       cmds, flags = lex
       flags.each do |arg|
-        flags.delete(arg) if exec(arg)[1]
+        flags.delete(arg) if action(arg)[1]
       end
       if cmds.length > 0
-        Command::exec(cmds, flags)
+        Command::action(cmds, flags)
         exit
       end
     end
 
-    def self.exec(arg)
+    def self.action(arg)
       arg_proc = resolve(arg)
       found = arg_proc != nil
       return (found && !arg_proc.executed? ? arg_proc.exec : false), found

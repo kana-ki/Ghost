@@ -9,8 +9,11 @@ require 'interface/strings'
 require 'util/tree'
 require 'util/argument'
 require 'util/command'
+require 'daemon'
+
+include Interface::Strings
 
 Util::Argument::handle_args
 Util::Command::handle_cmds unless $daemon
 
-print STARTING_AS_DAEMON if $daemon
+Daemon::new if $daemon
